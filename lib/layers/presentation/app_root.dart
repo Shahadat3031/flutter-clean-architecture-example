@@ -28,7 +28,7 @@ class _AppRootState extends State<AppRoot> {
   @override
   void initState() {
     super.initState();
-    _currentOption = StateManagementOptions.bloc;
+    _currentOption = StateManagementOptions.riverpod;
 
     // Notice:
     //

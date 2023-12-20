@@ -31,10 +31,13 @@ class Asset {
 // -----------------------------------------------------------------------------
 // Fragments
 // -----------------------------------------------------------------------------
-typedef FragmentPrograms = ({FragmentProgram ui});
+// typedef FragmentPrograms = ({FragmentProgram ui});
+typedef FragmentPrograms = Map<String, FragmentProgram>;
 
-Future<FragmentPrograms> loadFragmentPrograms() async =>
-    (ui: (await _loadFragmentProgram(Asset.uiShader)),);
+Future<Map<String, FragmentProgram>> loadFragmentPrograms() async => {'ui': await _loadFragmentProgram(Asset.uiShader)};
+
+// Future<FragmentPrograms> loadFragmentPrograms() async =>
+//     (ui: (await _loadFragmentProgram(Asset.uiShader)),);
 
 Future<FragmentProgram> _loadFragmentProgram(String path) async {
   return (await FragmentProgram.fromAsset(path));
